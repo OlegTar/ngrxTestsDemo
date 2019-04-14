@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { selectValue } from './ngrx';
+import { value } from './ngrx';
 import { AppState } from './reducers';
+import { IncrementAction } from './ngrx/actions';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,16 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription.add(this.store.pipe(select(selectValue)).subscribe(value => {
+    this.subscription.add(this.store.pipe(select(value)).subscribe(value => {
       this.value = value;
     }));
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  increment() {
+    this.store.dispatch(new IncrementAction());
   }
 }

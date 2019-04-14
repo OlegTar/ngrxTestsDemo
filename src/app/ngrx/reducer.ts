@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { INCREMENT } from './actions';
+import { INCREMENT, SET, SetAction } from './actions';
 
 export interface FeatureState {
     value: number;
@@ -15,6 +15,11 @@ export function reducer(state: FeatureState = initialState, action: Action) {
             return {
                 value: state.value + 1
             };
+        case SET: {
+            return {
+                value: (<SetAction>action).payload
+            };
+        }
     }
     return state;
 }

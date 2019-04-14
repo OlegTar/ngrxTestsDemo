@@ -4,7 +4,7 @@ import { AppState } from '../reducers';
 
 export const selectFeatureState = (state: AppState) => state.featureState;
 
-export const selectValue = createSelector(
+export const value = createSelector(
   selectFeatureState,
   (state: FeatureState) => state.value
 );
