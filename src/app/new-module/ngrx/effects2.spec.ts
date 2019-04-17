@@ -7,7 +7,7 @@ import { MyService } from '../my-service.service';
 import { GetDataActionSuccess, RequestGetDataAction } from './actions';
 import { Effects } from './effects';
 
-describe('effects', () => {
+fdescribe('effects', () => {
     let effects: Effects;
     let actions: Observable<Action>;
 
@@ -37,6 +37,36 @@ describe('effects', () => {
 
         // Asserts
         const expected = cold('b', {b: new GetDataActionSuccess('test1')});
+        expect(effects.requestGetData$).toBeObservable(expected);
+    });
+
+    it('should return GetDataActionSuccess if service returns ok 2', () => {
+        // Arrange
+        effects = TestBed.get(Effects);
+        const service: jasmine.SpyObj<MyService> = TestBed.get(MyService);
+        service.send.and.returnValue(cold('-a', {a: 'test1'}));
+        const action = new RequestGetDataAction();
+
+        // Action
+        actions = cold('a', {a: action});
+
+        // Asserts
+        const expected = cold('-b', {b: new GetDataActionSuccess('test1')});
+        expect(effects.requestGetData$).toBeObservable(expected);
+    });
+
+    it('should return GetDataActionSuccess if service returns ok 3', () => {
+        // Arrange
+        effects = TestBed.get(Effects);
+        const service: jasmine.SpyObj<MyService> = TestBed.get(MyService);
+        service.send.and.returnValue(cold('-a', {a: 'test1'}));
+        const action = new RequestGetDataAction();
+
+        // Action
+        actions = cold('aa', {a: action});
+
+        // Asserts
+        const expected = cold('--b', {b: new GetDataActionSuccess('test1')});
         expect(effects.requestGetData$).toBeObservable(expected);
     });
 });
