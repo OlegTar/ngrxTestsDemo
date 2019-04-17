@@ -17,37 +17,37 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   }));
-  
+
   it('should inrement value', () => {
-    //Arrange
+    // Arrange
     const store: Store<AppState> = TestBed.get(Store);
     let oldValue;
-    store.pipe(select(value), first()).subscribe(value => {
-      oldValue = value;
+    store.pipe(select(value), first()).subscribe(value_ => {
+      oldValue = value_;
     });
 
-    //Action
-    store.dispatch(new IncrementAction())
-    
-    //Assert
+    // Action
+    store.dispatch(new IncrementAction());
+
+    // Assert
     const newValue = store.pipe(select(value));
-    newValue.subscribe(value => {
-      expect(value).toBe(oldValue + 1);
-    })
+    newValue.subscribe(value_ => {
+      expect(value_).toBe(oldValue + 1);
+    });
   });
 
   it('should inrement value, test 2', () => {
-    //Arrange
+    // Arrange
     const store: Store<AppState> = TestBed.get(Store);
     store.dispatch(new SetAction(0));
 
-    //Action
-    store.dispatch(new IncrementAction())
-    
-    //Assert
+    // Action
+    store.dispatch(new IncrementAction());
+
+    // Assert
     const newValue = store.pipe(select(value));
-    newValue.subscribe(value => {
-      expect(value).toBe(1);
-    })
+    newValue.subscribe(value_ => {
+      expect(value_).toBe(1);
+    });
   });
 });
