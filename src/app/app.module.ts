@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { NavigationComponent } from './navigation/navigation.component';
-import { NewModuleModule } from './new-module/new-module.module';
+import { NewModule } from './new-module/new-module.module';
 import { EffectsComponent } from './new-module/effects/effects.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -30,7 +30,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         component: EffectsComponent
       }
     ]),
-    NewModuleModule,
+    NewModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

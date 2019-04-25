@@ -22,4 +22,4 @@ import { MyServiceFake } from './my-service-fake';
     useClass: MyServiceFake
   }]
 })
-export class NewModuleModule { }
+export class NewModule { }
