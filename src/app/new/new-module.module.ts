@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EffectsComponent } from './effects/effects.component';
-import { StoreModule } from '@ngrx/store';
-import { reducerMap } from './ngrx/reducerMap';
-import { EffectsModule, Actions } from '@ngrx/effects';
-import { Effects } from './ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { MyService } from './my-service.service';
+import { NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsComponent } from './effects/effects.component';
 import { MyServiceFake } from './my-service-fake';
+import { MyService } from './my-service.service';
+import { Effects } from './ngrx/effects';
+import { reducerMap } from './ngrx/reducerMap';
 
 @NgModule({
   declarations: [EffectsComponent],

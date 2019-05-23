@@ -9,14 +9,16 @@ export const initialState: EffectsComponentState = {
     result: null
 };
 
-export function reducer(state: EffectsComponentState = initialState, action: Action): EffectsComponentState {
+export function reducer(state: EffectsComponentState = initialState, action: Action)
+: EffectsComponentState {
     switch (action.type) {
         case GET_DATA_SUCCESS:
             return {
                 result: (<GetDataActionSuccess>action).payload
             };
+        default:
+            return state;
     }
-    return state;
 }
 
 export const getResult = (state: EffectsComponentState) => state.result;

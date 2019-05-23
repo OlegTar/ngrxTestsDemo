@@ -18,8 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription.add(this.store.pipe(select(value)).subscribe(value => {
-      this.value = value;
+    this.subscription.add(this.store.pipe(select(value)).subscribe(value_ => {
+      this.value = value_;
     }));
   }
 

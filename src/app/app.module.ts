@@ -10,6 +10,8 @@ import { NewModule } from './new/new-module.module';
 import { EffectsComponent } from './new/effects/effects.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { New2Module } from './new2/new2.module';
+import { SampleComponent } from './new2/sample/sample.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       {
         path: 'app-effects',
         component: EffectsComponent
+      },
+      {
+        path: 'app-sample',
+        component: SampleComponent
       }
     ]),
     NewModule,
+    New2Module,
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),

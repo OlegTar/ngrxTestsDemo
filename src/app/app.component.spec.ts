@@ -1,10 +1,9 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
+import { select, Store, StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
-import { reducers, AppState } from './reducers';
-import { StoreModule, Store, select } from '@ngrx/store';
 import { value } from './ngrx';
 import { IncrementAction, SetAction } from './ngrx/actions';
-import { first } from 'rxjs/operators';
+import { AppState, reducers } from './reducers';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -18,11 +17,11 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should inrement value', () => {
+  it('should increment value', () => {
     // Arrange
     const store: Store<AppState> = TestBed.get(Store);
     let oldValue;
-    store.pipe(select(value), first()).subscribe(value_ => {
+    store.pipe(select(value)).subscribe(value_ => {
       oldValue = value_;
     });
 
@@ -36,7 +35,7 @@ describe('AppComponent', () => {
     });
   });
 
-  it('should inrement value, test 2', () => {
+  it('should increment value, test 2', () => {
     // Arrange
     const store: Store<AppState> = TestBed.get(Store);
     store.dispatch(new SetAction(0));

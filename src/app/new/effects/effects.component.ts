@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { NewModuleState } from '../ngrx/reducerMap';
 import { Store, select } from '@ngrx/store';
 import { getResult } from '../ngrx';
-import { GetDataActionSuccess, RequestGetDataAction } from '../ngrx/actions';
+import { RequestGetDataAction } from '../ngrx/actions';
 
 @Component({
   selector: 'app-effects',

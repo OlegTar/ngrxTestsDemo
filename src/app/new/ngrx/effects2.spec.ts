@@ -7,7 +7,7 @@ import { MyService } from '../my-service.service';
 import { GetDataActionSuccess, RequestGetDataAction } from './actions';
 import { Effects } from './effects';
 
-fdescribe('effects', () => {
+describe('effects', () => {
     let effects: Effects;
     let actions: Observable<Action>;
 
